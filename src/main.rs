@@ -31,7 +31,7 @@ fn main() {
         // to compare use std::cmp::Ordering lib
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("{}", "Too small".red()),
-            Ordering::Greater => println!("{}", "Too big".red()),
+            Ordering::Greater => println!("{}", "Too big".yellow()),
             // break allows to exit the loop
             Ordering::Equal => {println!("{}", "You win!".green());break;}
             // Add text coloring using colored lib.
