@@ -1,7 +1,7 @@
+use colored::*;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
-use colored::*;
 // $env:https_proxy="http://proxy29.ad.campus-eni.fr:3128"
 
 fn main() {
@@ -15,7 +15,7 @@ fn main() {
     loop {
         println!("Input your guess: ");
         let mut guess: String = String::new();
-        // use stdin read_line to capture the user input
+        // use stdin read_line to capture the user input (standart input)
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
@@ -33,8 +33,10 @@ fn main() {
             Ordering::Less => println!("{}", "Too small".red()),
             Ordering::Greater => println!("{}", "Too big".yellow()),
             // break allows to exit the loop
-            Ordering::Equal => {println!("{}", "You win!".green());break;}
-            // Add text coloring using colored lib.
+            Ordering::Equal => {
+                println!("{}", "You win!".green());
+                break;
+            } // Add text coloring using colored lib.
         }
     }
 }
