@@ -19,7 +19,10 @@ fn main() {
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
-
+        
+        // If user input is empty then breaks out of the loop. 
+        if guess.trim().is_empty() {break};
+        
         // The string needs to be parsed as an int
         // Except handles the error message
         let guess: u32 = match guess.trim().parse() {
@@ -40,3 +43,5 @@ fn main() {
         }
     }
 }
+
+
