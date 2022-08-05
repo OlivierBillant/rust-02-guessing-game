@@ -23,13 +23,16 @@ fn main() {
         // If user input is empty then breaks out of the loop. 
         if guess.trim().is_empty() {break};
         
+        if !guess.trim().parse::<i32>().is_ok(){
+            println!("Please input a number");
+        }
         // The string needs to be parsed as an int
         // Except handles the error message
         let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
+                Ok(num) => num,
+                Err(_) => continue,
+            };
+            
         println!("You guessed {}", guess);
         // to compare use std::cmp::Ordering lib
         match guess.cmp(&secret_number) {
